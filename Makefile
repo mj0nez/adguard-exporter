@@ -2,7 +2,7 @@ export APP_VERSION?=v1.2.0
 
 # for notifications:
 # renovate: datasource=github-releases packageName=henrywhitaker3/adguard-exporter
-export EXPORTER_VERSION?=v1.1.17
+export EXPORTER_VERSION?=v1.2.0
 
 
 export COMPOSE_FILE := ./compose.yml
