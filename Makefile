@@ -21,5 +21,5 @@ build: compile
 
 # build with github actions
 ci-build: compile
-	docker compose build --pull
+	docker compose build --pull --push
 .PHONY: ci-build
