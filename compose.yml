@@ -3,4 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mj0nez/adguardhome-exporter:${APP_VERSION}
+    image: mj0nez/adguardhome-exporter:${APP_VERSION:-latest}
+    ports:
+      - 127.0.0.1:9618:9618
+    environment:
+      INTERVAL       : "15s"
+      ADGUARD_SERVERS: "${ADGUARD_SERVERS}"
+      ADGUARD_USERNAMES: "${ADGUARD_USERNAMES}"
+      ADGUARD_PASSWORDS: "${ADGUARD_PASSWORDS}"
