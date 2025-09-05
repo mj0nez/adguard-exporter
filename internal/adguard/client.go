@@ -207,13 +207,13 @@ func (c *Client) Url() string {
 
 func (c *Client) SearchClients(ctx context.Context, topClients []map[string]int) (map[string]string, error) {
 	reqBody := clientsSearchRequest{}
-    for _, c := range topClients {
-        for key := range c {
-            reqBody.Clients = append(reqBody.Clients, struct {
-                ID string `json:"id"`
-            }{ID: key})
-        }
-    }
+	for _, c := range topClients {
+		for key := range c {
+			reqBody.Clients = append(reqBody.Clients, struct {
+				ID string `json:"id"`
+			}{ID: key})
+		}
+	}
 
 	var resp []map[string]clientInfo
 	err := c.doPost(ctx, "/control/clients/search", reqBody, &resp)
