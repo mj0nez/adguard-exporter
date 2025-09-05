@@ -8,6 +8,8 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     environment: build
+    env:
+        APP_VERSION: ${{ github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
@@ -25,5 +27,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - run: make ci-build
-        env:
-          APP_VERSION: ${{ github.ref_name }}
+
+      - run: make ci-push
