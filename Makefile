@@ -19,7 +19,15 @@ build: compile
 	docker compose build $(PULL) $(PUSH)
 .PHONY: build
 
+format:
+	uvx pre-commit run --all-files
+.PHONY: format
+
 # build with github actions
 ci-build: compile
-	docker compose build --pull --push
+	docker compose build --pull
 .PHONY: ci-build
+
+ci-push:
+	docker compose push
+.PHONY: ci-push
