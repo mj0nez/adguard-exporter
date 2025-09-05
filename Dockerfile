@@ -6,7 +6,7 @@ FROM scratch
 WORKDIR /
 
 COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY adguard-exporter /adguard-exporter
+COPY ./bin/adguard-exporter /adguard-exporter
 USER 65532:65532
 
 ENTRYPOINT ["/adguard-exporter"]

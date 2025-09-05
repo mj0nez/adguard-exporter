@@ -1,0 +1,6 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mj0nez/adguardhome-exporter:${APP_VERSION}
